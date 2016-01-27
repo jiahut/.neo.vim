@@ -1,0 +1,65 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+"
+NeoBundle 'scrooloose/nerdtree'
+
+" chinese
+language messages zh_CN.utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese
+
+" Color
+Bundle 'freya'
+" bracket
+Bundle 'delimitMate.vim'
+" python
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'python.vim'
+
+" NerdTree use <F2>
+Bundle 'scrooloose/nerdtree'
+let NERDTreeWinPos='right'
+let NERDTreeWinSize=31
+let NERDTreeChDirMode=1
+map <F2> :NERDTreeToggle<CR>
+
+
+" Taglist  use <F3>
+Bundle 'taglist.vim'
+let Tlist_Auto_Update=1
+let Tlist_Auto_Open = 0
+let Tlist_Use_Right_Window=1
+let Tlist_Show_One_File=0
+let Tlist_File_Fold_Auto_Close=0
+let Tlist_Exit_OnlyWindow=1
+map <F3> :TlistToggle<CR>
+
+colorscheme freya
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
